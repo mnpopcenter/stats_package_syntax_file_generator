@@ -1,0 +1,20 @@
+---
+
+project:                       ipumsi
+caller:                        vb
+
+data_dir_name:                 devel/output_result
+data_file_name:                xx9999a.dat
+
+output_formats:                [sas, spss, stata, sts]
+output_dir_name:               devel/output_result
+output_file_stem:              _%s
+output_overwrite:              true
+
+data_structure:                hier
+record_types:                  [H, P]
+record_type_var_name:          RECTYPE
+rectangularize:                false
+
+all_vars_as_string:            false
+select_vars_by_record_type:    false

@@ -1,0 +1,24 @@
+FORMAT fixed
+
+
+VARIABLES
+  RECTYPE  1-1 (A)  \RECTYPE
+  EMPSTAT  2-3  \EMPSTAT
+
+
+VARIABLE LABELS
+  RECTYPE  "Record type"
+  EMPSTAT  "Employment status"
+
+
+VALUE LABELS
+  \RECTYPE
+    'H' "Household record"
+    'P' "Person record"
+  \EMPSTAT
+    1  "Employed"
+    2  "Unemployed"
+    98 "Unknown"
+    99 "Not in universe"
+
+

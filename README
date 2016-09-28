@@ -1,0 +1,128 @@
+This gem produces statistical package syntax files for fixed-column data files.
+
+    SAS
+    SPSS
+    Stata
+    Stat/Transfer STS metadata files
+
+
+Metadata can be supplied to the Controller in two general ways:
+
+    - Programmatically, using the API provided by the Controller class.
+      
+    - Via one or more YAML files -- typically just one YAML file, but the 
+      Controller will accept multiple files and merge their content.
+
+
+Basic usage:
+
+    require 'stats_package_syntax_file_generator'
+    
+    # Supply metadata via one YAML file.
+    sfc = SyntaxFile::Controller.new(:yaml_files => 'metadata.yaml')
+
+    # Or via multiple YAML files.
+    sfc = SyntaxFile::Controller.new(:yaml_files => ['md1.yaml', 'md2.yaml'])
+
+    # Or programmatically.
+    # For a working example, see devel/api_example.rb.
+    
+    # Generate all syntax files.
+    sfc.generate_syntax_files
+    
+    # Generate a syntax file of a specific TYPE (spss, sas, stata).
+    sfc.generate_syntax_file('TYPE')
+    
+    # Ditto, but get the syntax as a list of strings rather than writing a file.
+    syntax_lines = sfc.syntax('TYPE')
+
+
+Running tests:
+
+	devel/run_all_checks.sh
+
+
+Project structure:
+
+	devel/
+		# Developer area.
+		# Various scripts, plus the following:
+
+		input/
+			# YAML metadata used during development
+			# and in end-to-end acceptance testing.
+
+		output_expected/
+			# Acceptance testing: expected output.
+
+		output_result/
+			# Acceptance testing: directory where new output
+			# is written. This output is not included in Git.
+
+	lib/      # The syntax file utility itself.
+	tests/    # Unit test scripts and their YAML metadata.
+
+
+Class overview:
+
+    Controller
+
+        - The API for the gem. Users of the gem should not need to interact with
+          other classes.
+
+        - Serves as a container for the metadata needed to generate syntax files.
+
+        - Holds various attributes specifying the type of syntax files to
+          generate, the structure of the data files, and so forth.
+
+    Variable
+    Value
+
+        - Metadata classes holding information about variables in the data file.
+
+        - A Controller contains 1+ Variable objects.
+
+        - A Variable contains 0+ Value objects.
+
+    Maker
+    Maker_SAS
+    Maker_SPSS
+    Maker_STATA
+    Maker_STS
+
+        - Classes responsible for creating syntax.
+
+        - Maker provides methods that all classes have in common.
+
+        - The other classes inherit from Maker, overriding behavior as needed.
+
+
+
+General behavior of the specific Maker classes:
+
+    - The classes all define a primary method: syntax().
+
+    - The syntax() method consists of calls to various other methods responsible
+      for generating sections of the syntax.
+
+    - Methods that generate sub-sections of syntax have names beginning with 'syn_'.
+
+    - All of the syntax-generating methods return a list of strings.
+
+
+Notes on STS files:
+
+    1.  Hierchical data.
+        Stat/Transfer does not directly support hierarchical data structures. The
+        workaround is to perform multiple invocations of Stat/Transfer, once per record 
+        type. Each invocation must instruct Stat/Transfer to perform case selection to
+        filter the records such that a single record type is in scope, and must request
+        the variables appropriate for that record type.
+
+    2.  Variable and value labels with quotes.  
+        Stat/Transfer does not support escaping quotes within value labels.  Therefore,
+        double quotes are represented by a pair of single quotes.
+
+    3.  Only alphanumeric values are permitted for value labels.
+        Nonconforming values are skipped, with a comment added to the STS file that
+        documents this action.

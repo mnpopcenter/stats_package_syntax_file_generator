@@ -1,0 +1,2012 @@
+---
+
+variables:
+
+-
+  name: RECTYPE
+  label: "Record type"
+  start_column: 1
+  width: 1
+  is_string_var: true
+  is_common_var: true
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: "H"
+    label: "Household"
+    is_missing_value: false
+  -
+    value: "P"
+    label: "Person"
+    is_missing_value: false
+
+-
+  name: DWNUM
+  label: "Dwelling number"
+  start_column: 2
+  width: 6
+  is_string_var: false
+  is_common_var: true
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values: []
+
+-
+  name: HHNUM
+  label: "\"Household number\""
+  start_column: 8
+  width: 1
+  is_string_var: false
+  is_common_var: true
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 1
+    label: "[no label]"
+    is_missing_value: false
+
+-
+  name: HDFIRSTD
+  label: "Head not first [\"dwelling-wide\"] {note}"
+  start_column: 26
+  width: 1
+  is_string_var: false
+  is_common_var: true
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 0
+    label: "No problem"
+    is_missing_value: false
+  -
+    value: 1
+    label: "One or more households have heads but not as the first person"
+    is_missing_value: false
+
+-
+  name: FBIG_ND
+  label: "N of persons in large dwelling before it was split (see FBIG)"
+  start_column: 45
+  width: 4
+  is_string_var: false
+  is_common_var: true
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 0
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 107
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 128
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 154
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 155
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 171
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 191
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 529
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 949
+    label: "[no label]"
+    is_missing_value: false
+
+-
+  name: BADDW
+  label: "Bad dwelling"
+  start_column: 49
+  width: 1
+  is_string_var: false
+  is_common_var: true
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 0
+    label: "No problem"
+    is_missing_value: false
+  -
+    value: 1
+    label: "Bad dwelling"
+    is_missing_value: false
+
+-
+  name: CANTON
+  label: "Canton \"geo area\""
+  start_column: 67
+  width: 3
+  is_string_var: false
+  is_common_var: false
+  record_type: H
+  implied_decimals: 1
+  suppress_labels: true
+  values:
+  -
+    value: 101
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 102
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 103
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 104
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 105
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 106
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 107
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 108
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 109
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 110
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 111
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 112
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 113
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 114
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 115
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 116
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 117
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 118
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 119
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 120
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 201
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 202
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 203
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 204
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 205
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 206
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 207
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 208
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 209
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 210
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 211
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 212
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 213
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 214
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 215
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 301
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 302
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 303
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 304
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 305
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 306
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 307
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 308
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 401
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 402
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 403
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 404
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 405
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 406
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 407
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 408
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 409
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 410
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 501
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 502
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 503
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 504
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 505
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 506
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 507
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 508
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 509
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 510
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 511
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 601
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 602
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 603
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 604
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 605
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 606
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 607
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 608
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 609
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 701
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 702
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 703
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 704
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 705
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: 706
+    label: "[no label]"
+    is_missing_value: false
+
+-
+  name: URBAN
+  label: "Urban/Rural"
+  start_column: 80
+  width: 1
+  is_string_var: false
+  is_common_var: false
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 1
+    label: "Urban"
+    is_missing_value: false
+  -
+    value: 2
+    label: "Rural"
+    is_missing_value: false
+
+-
+  name: DWTYPE
+  label: "Dwelling type"
+  start_column: 81
+  width: 1
+  is_string_var: false
+  is_common_var: false
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 1
+    label: "Ordinary labels don't have \"\"skills\"\""
+    is_missing_value: false
+  -
+    value: 2
+    label: "Ranch"
+    is_missing_value: false
+  -
+    value: 3
+    label: "Improvised"
+    is_missing_value: false
+  -
+    value: 4
+    label: "Mobile"
+    is_missing_value: false
+  -
+    value: 5
+    label: "Collective dwelling"
+    is_missing_value: false
+
+-
+  name: OWNERSHP
+  label: "Occupancy_and_ownership_status........40........50........60........70........80........90.......100.......110.......120.......130.......140.......150.......160.......170.......180.......190.......200.......210.......220.......230.......240.......250.......260.......270.......280.......290.......300"
+  start_column: 82
+  width: 2
+  is_string_var: false
+  is_common_var: false
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 0
+    label: "Occupied:_rented......................40........50........60........70........80........90.......100.......110.......120.......130.......140.......150.......160.......170.......180.......190.......200.......210.......220.......230.......240.......250.......260.......270.......280.......290.......300"
+    is_missing_value: false
+  -
+    value: 1
+    label: "Occupied:owned"
+    is_missing_value: false
+  -
+    value: 2
+    label: "Occupied: other"
+    is_missing_value: false
+  -
+    value: 3
+    label: "Vacant: for rent"
+    is_missing_value: false
+  -
+    value: 4
+    label: "Vacant: for sale"
+    is_missing_value: false
+  -
+    value: 5
+    label: "Vacant: for vacation"
+    is_missing_value: false
+  -
+    value: 6
+    label: "Vacant: Under repair"
+    is_missing_value: false
+  -
+    value: 7
+    label: "Vacant: Under construction"
+    is_missing_value: false
+  -
+    value: 8
+    label: "Vacant: other"
+    is_missing_value: false
+  -
+    value: 9
+    label: "Unknown"
+    is_missing_value: false
+  -
+    value: 10
+    label: "Collective dwelling"
+    is_missing_value: false
+
+-
+  name: RENT
+  label: "Monthly rent"
+  start_column: 84
+  width: 4
+  is_string_var: true
+  is_common_var: false
+  record_type: H
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: "......................................40........50........60........70........80........90.......100.......110.......120.......130.......140.......150.......160.......170.......180.......190.......200.......210.......220.......230.......240.......250.......260.......270.......280.......290.......300"
+    label: "[no label]............................40........50........60........70........80........90.......100.......110.......120.......130.......140.......150.......160.......170.......180.......190.......200.......210.......220.......230.......240.......250.......260.......270.......280.......290.......300"
+    is_missing_value: false
+  -
+    value: "50"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "70"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "75"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "80"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "85"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "100"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "120"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "125"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "130"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "140"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "150"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "160"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "175"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "200"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "210"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "225"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "240"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "250"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "300"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "400"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "425"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "454"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "500"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "550"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "700"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "1800"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "2000"
+    label: "[no label]"
+    is_missing_value: false
+  -
+    value: "8501"
+    label: "[no label]"
+    is_missing_value: false
+
+-
+  name: RELATE
+  label: "Relationship to household head"
+  start_column: 67
+  width: 1
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 2
+    label: "Head"
+    is_missing_value: false
+  -
+    value: 3
+    label: "Spouse - Partner"
+    is_missing_value: false
+  -
+    value: 4
+    label: "Son/daughter, stepson/stepdaughter"
+    is_missing_value: false
+  -
+    value: 5
+    label: "Other relatives"
+    is_missing_value: false
+  -
+    value: 6
+    label: "Domestic servants and their relatives"
+    is_missing_value: false
+  -
+    value: 7
+    label: "Other non-relatives"
+    is_missing_value: false
+  -
+    value: 8
+    label: "Member in collective dwellings"
+    is_missing_value: false
+
+-
+  name: SEX
+  label: "Sex"
+  start_column: 68
+  width: 1
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 1
+    label: "Male"
+    is_missing_value: false
+  -
+    value: 2
+    label: "Female"
+    is_missing_value: false
+
+-
+  name: AGE
+  label: "Age"
+  start_column: 69
+  width: 3
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: true
+  values:
+  -
+    value: 0
+    label: "0"
+    is_missing_value: false
+  -
+    value: 1
+    label: "1"
+    is_missing_value: false
+  -
+    value: 2
+    label: "2"
+    is_missing_value: false
+  -
+    value: 3
+    label: "3"
+    is_missing_value: false
+  -
+    value: 4
+    label: "4"
+    is_missing_value: false
+  -
+    value: 5
+    label: "5"
+    is_missing_value: false
+  -
+    value: 6
+    label: "6"
+    is_missing_value: false
+  -
+    value: 7
+    label: "7"
+    is_missing_value: false
+  -
+    value: 8
+    label: "8"
+    is_missing_value: false
+  -
+    value: 9
+    label: "9"
+    is_missing_value: false
+  -
+    value: 10
+    label: "10"
+    is_missing_value: false
+  -
+    value: 11
+    label: "11"
+    is_missing_value: false
+  -
+    value: 12
+    label: "12"
+    is_missing_value: false
+  -
+    value: 13
+    label: "13"
+    is_missing_value: false
+  -
+    value: 14
+    label: "14"
+    is_missing_value: false
+  -
+    value: 15
+    label: "15"
+    is_missing_value: false
+  -
+    value: 16
+    label: "16"
+    is_missing_value: false
+  -
+    value: 17
+    label: "17"
+    is_missing_value: false
+  -
+    value: 18
+    label: "18"
+    is_missing_value: false
+  -
+    value: 19
+    label: "19"
+    is_missing_value: false
+  -
+    value: 20
+    label: "20"
+    is_missing_value: false
+  -
+    value: 21
+    label: "21"
+    is_missing_value: false
+  -
+    value: 22
+    label: "22"
+    is_missing_value: false
+  -
+    value: 23
+    label: "23"
+    is_missing_value: false
+  -
+    value: 24
+    label: "24"
+    is_missing_value: false
+  -
+    value: 25
+    label: "25"
+    is_missing_value: false
+  -
+    value: 26
+    label: "26"
+    is_missing_value: false
+  -
+    value: 27
+    label: "27"
+    is_missing_value: false
+  -
+    value: 28
+    label: "28"
+    is_missing_value: false
+  -
+    value: 29
+    label: "29"
+    is_missing_value: false
+  -
+    value: 30
+    label: "30"
+    is_missing_value: false
+  -
+    value: 31
+    label: "31"
+    is_missing_value: false
+  -
+    value: 32
+    label: "32"
+    is_missing_value: false
+  -
+    value: 33
+    label: "33"
+    is_missing_value: false
+  -
+    value: 34
+    label: "34"
+    is_missing_value: false
+  -
+    value: 35
+    label: "35"
+    is_missing_value: false
+  -
+    value: 36
+    label: "36"
+    is_missing_value: false
+  -
+    value: 37
+    label: "37"
+    is_missing_value: false
+  -
+    value: 38
+    label: "38"
+    is_missing_value: false
+  -
+    value: 39
+    label: "39"
+    is_missing_value: false
+  -
+    value: 40
+    label: "40"
+    is_missing_value: false
+  -
+    value: 41
+    label: "41"
+    is_missing_value: false
+  -
+    value: 42
+    label: "42"
+    is_missing_value: false
+  -
+    value: 43
+    label: "43"
+    is_missing_value: false
+  -
+    value: 44
+    label: "44"
+    is_missing_value: false
+  -
+    value: 45
+    label: "45"
+    is_missing_value: false
+  -
+    value: 46
+    label: "46"
+    is_missing_value: false
+  -
+    value: 47
+    label: "47"
+    is_missing_value: false
+  -
+    value: 48
+    label: "48"
+    is_missing_value: false
+  -
+    value: 49
+    label: "49"
+    is_missing_value: false
+  -
+    value: 50
+    label: "50"
+    is_missing_value: false
+  -
+    value: 51
+    label: "51"
+    is_missing_value: false
+  -
+    value: 52
+    label: "52"
+    is_missing_value: false
+  -
+    value: 53
+    label: "53"
+    is_missing_value: false
+  -
+    value: 54
+    label: "54"
+    is_missing_value: false
+  -
+    value: 55
+    label: "55"
+    is_missing_value: false
+  -
+    value: 56
+    label: "56"
+    is_missing_value: false
+  -
+    value: 57
+    label: "57"
+    is_missing_value: false
+  -
+    value: 58
+    label: "58"
+    is_missing_value: false
+  -
+    value: 59
+    label: "59"
+    is_missing_value: false
+  -
+    value: 60
+    label: "60"
+    is_missing_value: false
+  -
+    value: 61
+    label: "61"
+    is_missing_value: false
+  -
+    value: 62
+    label: "62"
+    is_missing_value: false
+  -
+    value: 63
+    label: "63"
+    is_missing_value: false
+  -
+    value: 64
+    label: "64"
+    is_missing_value: false
+  -
+    value: 65
+    label: "65"
+    is_missing_value: false
+  -
+    value: 66
+    label: "66"
+    is_missing_value: false
+  -
+    value: 67
+    label: "67"
+    is_missing_value: false
+  -
+    value: 68
+    label: "68"
+    is_missing_value: false
+  -
+    value: 69
+    label: "69"
+    is_missing_value: false
+  -
+    value: 70
+    label: "70"
+    is_missing_value: false
+  -
+    value: 71
+    label: "71"
+    is_missing_value: false
+  -
+    value: 72
+    label: "72"
+    is_missing_value: false
+  -
+    value: 73
+    label: "73"
+    is_missing_value: false
+  -
+    value: 74
+    label: "74"
+    is_missing_value: false
+  -
+    value: 75
+    label: "75"
+    is_missing_value: false
+  -
+    value: 76
+    label: "76"
+    is_missing_value: false
+  -
+    value: 77
+    label: "77"
+    is_missing_value: false
+  -
+    value: 78
+    label: "78"
+    is_missing_value: false
+  -
+    value: 79
+    label: "79"
+    is_missing_value: false
+  -
+    value: 80
+    label: "80"
+    is_missing_value: false
+  -
+    value: 81
+    label: "81"
+    is_missing_value: false
+  -
+    value: 82
+    label: "82"
+    is_missing_value: false
+  -
+    value: 83
+    label: "83"
+    is_missing_value: false
+  -
+    value: 84
+    label: "84"
+    is_missing_value: false
+  -
+    value: 85
+    label: "85"
+    is_missing_value: false
+  -
+    value: 86
+    label: "86"
+    is_missing_value: false
+  -
+    value: 87
+    label: "87"
+    is_missing_value: false
+  -
+    value: 88
+    label: "88"
+    is_missing_value: false
+  -
+    value: 89
+    label: "89"
+    is_missing_value: false
+  -
+    value: 90
+    label: "90"
+    is_missing_value: false
+  -
+    value: 91
+    label: "91"
+    is_missing_value: false
+  -
+    value: 92
+    label: "92"
+    is_missing_value: false
+  -
+    value: 93
+    label: "93"
+    is_missing_value: false
+  -
+    value: 94
+    label: "94"
+    is_missing_value: false
+  -
+    value: 95
+    label: "95"
+    is_missing_value: false
+  -
+    value: 96
+    label: "96"
+    is_missing_value: false
+  -
+    value: 97
+    label: "97"
+    is_missing_value: false
+  -
+    value: 98
+    label: "98"
+    is_missing_value: false
+  -
+    value: 99
+    label: "[no label]"
+    is_missing_value: false
+
+-
+  name: RESPREV2
+  label: "Place of residence 5 years ago - code"
+  start_column: 80
+  width: 4
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 3
+  suppress_labels: true
+  values:
+  -
+    value: 101
+    label: "San Jose"
+    is_missing_value: false
+  -
+    value: 102
+    label: "Escazu"
+    is_missing_value: false
+  -
+    value: 103
+    label: "Desamparados"
+    is_missing_value: false
+  -
+    value: 104
+    label: "Puriscal"
+    is_missing_value: false
+  -
+    value: 105
+    label: "Tarrazu"
+    is_missing_value: false
+  -
+    value: 106
+    label: "Aserri"
+    is_missing_value: false
+  -
+    value: 107
+    label: "Mora"
+    is_missing_value: false
+  -
+    value: 108
+    label: "Goicoechea"
+    is_missing_value: false
+  -
+    value: 109
+    label: "Santa Ana"
+    is_missing_value: false
+  -
+    value: 110
+    label: "Alajuelita"
+    is_missing_value: false
+  -
+    value: 111
+    label: "Vasquez De Coronado"
+    is_missing_value: false
+  -
+    value: 112
+    label: "Acosta"
+    is_missing_value: false
+  -
+    value: 113
+    label: "Tibas"
+    is_missing_value: false
+  -
+    value: 114
+    label: "Moravia"
+    is_missing_value: false
+  -
+    value: 115
+    label: "Montes De Oca"
+    is_missing_value: false
+  -
+    value: 116
+    label: "Turrubares"
+    is_missing_value: false
+  -
+    value: 117
+    label: "Dota"
+    is_missing_value: false
+  -
+    value: 118
+    label: "Curridabat"
+    is_missing_value: false
+  -
+    value: 119
+    label: "Perez Zeledon"
+    is_missing_value: false
+  -
+    value: 120
+    label: "Leon Cortes"
+    is_missing_value: false
+  -
+    value: 201
+    label: "Alajuela"
+    is_missing_value: false
+  -
+    value: 202
+    label: "San Ramon"
+    is_missing_value: false
+  -
+    value: 203
+    label: "Grecia"
+    is_missing_value: false
+  -
+    value: 204
+    label: "San Mateo"
+    is_missing_value: false
+  -
+    value: 205
+    label: "Atenas"
+    is_missing_value: false
+  -
+    value: 206
+    label: "Naranjo"
+    is_missing_value: false
+  -
+    value: 207
+    label: "Palmares"
+    is_missing_value: false
+  -
+    value: 208
+    label: "Poas"
+    is_missing_value: false
+  -
+    value: 209
+    label: "Orotina"
+    is_missing_value: false
+  -
+    value: 210
+    label: "San Carlos"
+    is_missing_value: false
+  -
+    value: 211
+    label: "Alfaro Ruiz"
+    is_missing_value: false
+  -
+    value: 212
+    label: "Valverde Vega"
+    is_missing_value: false
+  -
+    value: 213
+    label: "Upala"
+    is_missing_value: false
+  -
+    value: 214
+    label: "Los Chiles"
+    is_missing_value: false
+  -
+    value: 215
+    label: "Guatuso"
+    is_missing_value: false
+  -
+    value: 301
+    label: "Cartago"
+    is_missing_value: false
+  -
+    value: 302
+    label: "Paraiso"
+    is_missing_value: false
+  -
+    value: 303
+    label: "La Union"
+    is_missing_value: false
+  -
+    value: 304
+    label: "Jimenez"
+    is_missing_value: false
+  -
+    value: 305
+    label: "Turrialba"
+    is_missing_value: false
+  -
+    value: 306
+    label: "Alvarado"
+    is_missing_value: false
+  -
+    value: 307
+    label: "Oreamuno"
+    is_missing_value: false
+  -
+    value: 308
+    label: "El Guarco"
+    is_missing_value: false
+  -
+    value: 401
+    label: "Heredia"
+    is_missing_value: false
+  -
+    value: 402
+    label: "Barva"
+    is_missing_value: false
+  -
+    value: 403
+    label: "Santo Domingo"
+    is_missing_value: false
+  -
+    value: 404
+    label: "Santa Barbara"
+    is_missing_value: false
+  -
+    value: 405
+    label: "San Rafael"
+    is_missing_value: false
+  -
+    value: 406
+    label: "San Isidro"
+    is_missing_value: false
+  -
+    value: 407
+    label: "Belen"
+    is_missing_value: false
+  -
+    value: 408
+    label: "Flores"
+    is_missing_value: false
+  -
+    value: 409
+    label: "San Pablo"
+    is_missing_value: false
+  -
+    value: 410
+    label: "Sarapiqui"
+    is_missing_value: false
+  -
+    value: 501
+    label: "Liberia"
+    is_missing_value: false
+  -
+    value: 502
+    label: "Nicoya"
+    is_missing_value: false
+  -
+    value: 503
+    label: "Santa Cruz"
+    is_missing_value: false
+  -
+    value: 504
+    label: "Bagaces"
+    is_missing_value: false
+  -
+    value: 505
+    label: "Carrillo"
+    is_missing_value: false
+  -
+    value: 506
+    label: "Ca�as"
+    is_missing_value: false
+  -
+    value: 507
+    label: "Abangares"
+    is_missing_value: false
+  -
+    value: 508
+    label: "Tilaran"
+    is_missing_value: false
+  -
+    value: 509
+    label: "Nandayure"
+    is_missing_value: false
+  -
+    value: 510
+    label: "La Cruz"
+    is_missing_value: false
+  -
+    value: 511
+    label: "Hojancha"
+    is_missing_value: false
+  -
+    value: 601
+    label: "Puntarenas"
+    is_missing_value: false
+  -
+    value: 602
+    label: "Esparza"
+    is_missing_value: false
+  -
+    value: 603
+    label: "Buenos Aires"
+    is_missing_value: false
+  -
+    value: 604
+    label: "Montes De Oro"
+    is_missing_value: false
+  -
+    value: 605
+    label: "Osa"
+    is_missing_value: false
+  -
+    value: 606
+    label: "Aguirre"
+    is_missing_value: false
+  -
+    value: 607
+    label: "Golfito"
+    is_missing_value: false
+  -
+    value: 608
+    label: "Coto Brus"
+    is_missing_value: false
+  -
+    value: 609
+    label: "Parrita"
+    is_missing_value: false
+  -
+    value: 610
+    label: "Corredores"
+    is_missing_value: false
+  -
+    value: 611
+    label: "Garabito"
+    is_missing_value: false
+  -
+    value: 701
+    label: "Limon"
+    is_missing_value: false
+  -
+    value: 702
+    label: "Pococi"
+    is_missing_value: false
+  -
+    value: 703
+    label: "Siquirres"
+    is_missing_value: false
+  -
+    value: 704
+    label: "Talamanca"
+    is_missing_value: false
+  -
+    value: 705
+    label: "Matina"
+    is_missing_value: false
+  -
+    value: 706
+    label: "Guacimo"
+    is_missing_value: false
+  -
+    value: 801
+    label: "Canada"
+    is_missing_value: false
+  -
+    value: 802
+    label: "United States"
+    is_missing_value: false
+  -
+    value: 803
+    label: "Mexico"
+    is_missing_value: false
+  -
+    value: 904
+    label: "El Salvador"
+    is_missing_value: false
+  -
+    value: 905
+    label: "Guatemala"
+    is_missing_value: false
+  -
+    value: 906
+    label: "Honduras"
+    is_missing_value: false
+  -
+    value: 907
+    label: "Nicaragua"
+    is_missing_value: false
+  -
+    value: 908
+    label: "Panama"
+    is_missing_value: false
+  -
+    value: 1009
+    label: "Cuba"
+    is_missing_value: false
+  -
+    value: 1010
+    label: "Haiti"
+    is_missing_value: false
+  -
+    value: 1011
+    label: "Jamaica"
+    is_missing_value: false
+  -
+    value: 1012
+    label: "Dominican Republic"
+    is_missing_value: false
+  -
+    value: 1013
+    label: "Trinidad and Tobago"
+    is_missing_value: false
+  -
+    value: 1114
+    label: "Colombia"
+    is_missing_value: false
+  -
+    value: 1115
+    label: "Ecuador"
+    is_missing_value: false
+  -
+    value: 1116
+    label: "Venezuela"
+    is_missing_value: false
+  -
+    value: 1117
+    label: "Brazil"
+    is_missing_value: false
+  -
+    value: 1118
+    label: "Argentina"
+    is_missing_value: false
+  -
+    value: 1119
+    label: "Uruguay"
+    is_missing_value: false
+  -
+    value: 1120
+    label: "Bolivia"
+    is_missing_value: false
+  -
+    value: 1121
+    label: "Paraguay"
+    is_missing_value: false
+  -
+    value: 1122
+    label: "Chile"
+    is_missing_value: false
+  -
+    value: 1123
+    label: "Peru"
+    is_missing_value: false
+  -
+    value: 1124
+    label: "Other South American Countries"
+    is_missing_value: false
+  -
+    value: 1224
+    label: "Germany"
+    is_missing_value: false
+  -
+    value: 1225
+    label: "Austria"
+    is_missing_value: false
+  -
+    value: 1226
+    label: "Belgium"
+    is_missing_value: false
+  -
+    value: 1227
+    label: "Luxembourg"
+    is_missing_value: false
+  -
+    value: 1228
+    label: "Denmark"
+    is_missing_value: false
+  -
+    value: 1229
+    label: "Spain"
+    is_missing_value: false
+  -
+    value: 1230
+    label: "France"
+    is_missing_value: false
+  -
+    value: 1231
+    label: "Ireland"
+    is_missing_value: false
+  -
+    value: 1232
+    label: "Iceland"
+    is_missing_value: false
+  -
+    value: 1233
+    label: "Italy"
+    is_missing_value: false
+  -
+    value: 1234
+    label: "Norway"
+    is_missing_value: false
+  -
+    value: 1235
+    label: "Portugal"
+    is_missing_value: false
+  -
+    value: 1236
+    label: "United Kingdom"
+    is_missing_value: false
+  -
+    value: 1237
+    label: "Sweden"
+    is_missing_value: false
+  -
+    value: 1238
+    label: "Switzerland"
+    is_missing_value: false
+  -
+    value: 1239
+    label: "Bulgaria"
+    is_missing_value: false
+  -
+    value: 1240
+    label: "Czechoslovakia"
+    is_missing_value: false
+  -
+    value: 1241
+    label: "Finland"
+    is_missing_value: false
+  -
+    value: 1242
+    label: "Greece"
+    is_missing_value: false
+  -
+    value: 1243
+    label: "Hungary"
+    is_missing_value: false
+  -
+    value: 1244
+    label: "Poland"
+    is_missing_value: false
+  -
+    value: 1245
+    label: "Romania"
+    is_missing_value: false
+  -
+    value: 1246
+    label: "Yugoslavia"
+    is_missing_value: false
+  -
+    value: 1247
+    label: "Soviet Union (USSR)"
+    is_missing_value: false
+  -
+    value: 1248
+    label: "Other European Countries"
+    is_missing_value: false
+  -
+    value: 1349
+    label: "Cyprus"
+    is_missing_value: false
+  -
+    value: 1350
+    label: "Iraq"
+    is_missing_value: false
+  -
+    value: 1351
+    label: "Iran"
+    is_missing_value: false
+  -
+    value: 1352
+    label: "Israel"
+    is_missing_value: false
+  -
+    value: 1353
+    label: "Jordan"
+    is_missing_value: false
+  -
+    value: 1354
+    label: "Kuwait"
+    is_missing_value: false
+  -
+    value: 1355
+    label: "Lebanon"
+    is_missing_value: false
+  -
+    value: 1356
+    label: "Syria"
+    is_missing_value: false
+  -
+    value: 1357
+    label: "Turkey"
+    is_missing_value: false
+  -
+    value: 1358
+    label: "Yemen"
+    is_missing_value: false
+  -
+    value: 1359
+    label: "Afghanistan"
+    is_missing_value: false
+  -
+    value: 1360
+    label: "India"
+    is_missing_value: false
+  -
+    value: 1361
+    label: "Nepal"
+    is_missing_value: false
+  -
+    value: 1362
+    label: "Pakistan"
+    is_missing_value: false
+  -
+    value: 1363
+    label: "Burma"
+    is_missing_value: false
+  -
+    value: 1364
+    label: "Indonesia"
+    is_missing_value: false
+  -
+    value: 1365
+    label: "Thailand"
+    is_missing_value: false
+  -
+    value: 1366
+    label: "Vietnam"
+    is_missing_value: false
+  -
+    value: 1367
+    label: "Korea"
+    is_missing_value: false
+  -
+    value: 1368
+    label: "China"
+    is_missing_value: false
+  -
+    value: 1369
+    label: "Japan"
+    is_missing_value: false
+  -
+    value: 1370
+    label: "Mongolia"
+    is_missing_value: false
+  -
+    value: 1371
+    label: "Other Asian Countries"
+    is_missing_value: false
+  -
+    value: 1472
+    label: "Algeria"
+    is_missing_value: false
+  -
+    value: 1473
+    label: "Morocco"
+    is_missing_value: false
+  -
+    value: 1474
+    label: "Egypt"
+    is_missing_value: false
+  -
+    value: 1475
+    label: "Sudan"
+    is_missing_value: false
+  -
+    value: 1476
+    label: "Tunisia"
+    is_missing_value: false
+  -
+    value: 1477
+    label: "Upper Volta"
+    is_missing_value: false
+  -
+    value: 1478
+    label: "Cameroon"
+    is_missing_value: false
+  -
+    value: 1479
+    label: "Congo"
+    is_missing_value: false
+  -
+    value: 1480
+    label: "Gabon"
+    is_missing_value: false
+  -
+    value: 1481
+    label: "Ghana"
+    is_missing_value: false
+  -
+    value: 1482
+    label: "Guinea"
+    is_missing_value: false
+  -
+    value: 1483
+    label: "Liberia"
+    is_missing_value: false
+  -
+    value: 1484
+    label: "Ethiopia"
+    is_missing_value: false
+  -
+    value: 1485
+    label: "Kenya"
+    is_missing_value: false
+  -
+    value: 1486
+    label: "Madagascar"
+    is_missing_value: false
+  -
+    value: 1487
+    label: "Uganda"
+    is_missing_value: false
+  -
+    value: 1488
+    label: "South Africa"
+    is_missing_value: false
+  -
+    value: 1489
+    label: "Other African Countries"
+    is_missing_value: false
+  -
+    value: 1590
+    label: "Australia"
+    is_missing_value: false
+  -
+    value: 1591
+    label: "New Zealand"
+    is_missing_value: false
+  -
+    value: 1592
+    label: "Western Samoa"
+    is_missing_value: false
+  -
+    value: 1593
+    label: "Other Countries of Oceania"
+    is_missing_value: false
+  -
+    value: 1594
+    label: "Any Other Country"
+    is_missing_value: false
+  -
+    value: 1595
+    label: "[no label]"
+    is_missing_value: false
+
+-
+  name: SOCSEC
+  label: ""
+  start_column: 93
+  width: 1
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 1
+    label: "Directly covered person"
+    is_missing_value: false
+  -
+    value: 2
+    label: "Covered through family member"
+    is_missing_value: false
+  -
+    value: 3
+    label: "Not covered"
+    is_missing_value: false
+
+-
+  name: EDLEVEL
+  label: "Educational level"
+  start_column: 100
+  width: 1
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: a
+    label: "None"
+    is_missing_value: false
+  -
+    value: b
+    label: "Primary"
+    is_missing_value: false
+  -
+    value: c
+    label: "Secondary"
+    is_missing_value: false
+  -
+    value: d
+    label: "University"
+    is_missing_value: false
+  -
+    value: e
+    label: "Under 6 yrs of age"
+    is_missing_value: false
+
+-
+  name: LIT
+  label: "Literacy"
+  start_column: 101
+  width: 1
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: false
+  values:
+  -
+    value: 1
+    label: "Able to read and write"
+    is_missing_value: false
+  -
+    value: 2
+    label: "Not able to read and write"
+    is_missing_value: false
+  -
+    value: x
+    label: "Under 10 yrs of age"
+    is_missing_value: false
+
+-
+  name: BIGDEC
+  label: "Big decimal"
+  start_column: 101
+  width: 10
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 5
+  suppress_labels: false
+  values: []
+
+-
+  name: BIGINT
+  label: "Big integer"
+  start_column: 101
+  width: 19
+  is_string_var: false
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: false
+  values: []
+
+-
+  name: BIGSTR
+  label: "Big string"
+  start_column: 101
+  width: 19
+  is_string_var: true
+  is_common_var: false
+  record_type: P
+  implied_decimals: 0
+  suppress_labels: false
+  values: []
+

@@ -1,0 +1,13 @@
+---
+
+project:               ipumsi
+caller:                test
+data_dir_name:         __
+data_file_name:        xx9999a.dat
+output_formats:        [sas, spss, stata, sts]
+output_dir_name:       __
+output_file_stem:      '%s'
+output_overwrite:      true
+data_structure:        hier
+record_types:          [H, P]
+record_type_var_name:  RECTYPE
