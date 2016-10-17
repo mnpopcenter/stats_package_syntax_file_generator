@@ -259,12 +259,11 @@ end
 
 def var_fmt (var)
 
-    return 'str'   if var.is_string_var
-    return  'double' if var.is_double_var
-    return 'float' if var.implied_decimals > 0
-    return 'byte'  if var.width <= 2
-    return 'int'   if var.width <= 4
-    return 'long'  if var.width <= 7
+    return 'str'    if var.is_string_var
+    return 'double' if var.is_double_var || var.implied_decimals > 0
+    return 'byte'   if var.width <= 2
+    return 'int'    if var.width <= 4
+    return 'long'   if var.width <= 7
     
     return 'double'
 end
