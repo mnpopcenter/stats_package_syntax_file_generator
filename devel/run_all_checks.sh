@@ -15,6 +15,8 @@ SYARGS="${DIR}/front_end.rb ${DIR}/input/all_vars.yaml ${DIR}/input/controller.y
 echo; echo "Running unit tests..."
 ruby -w tests/ts_all.rb
 
+mkdir -p "${DIR}/output_result/"
+
 rm -f ${RMARGS}
 
 echo; echo "Running end-to-end acceptance comparisons..."
@@ -23,4 +25,3 @@ ruby -w ${SYARGS} ALL            # Run for all data structures (hier and rect).
 ruby -w ${DIR}/api_example.rb    # A run using the API.
 sh ${DIR}/check_output.sh cmp    # Compare the output.
 
-rm -f ${RMARGS}

@@ -8,7 +8,7 @@ quietly infix                ///
   byte    hdfirstd  26-26    ///
   int     fbig_nd   45-48    ///
   byte    baddw     49-49    ///
-  float   canton    67-69    ///
+  double  canton    67-69    ///
   byte    urban     80-80    ///
   byte    dwtype    81-81    ///
   byte    ownershp  82-83    ///
@@ -30,11 +30,11 @@ quietly infix                ///
   byte    relate    67-67    ///
   byte    sex       68-68    ///
   int     age       69-71    ///
-  float   resprev2  80-83    ///
+  double  resprev2  80-83    ///
   byte    socsec    93-93    ///
   byte    edlevel   100-100  ///
   byte    lit       101-101  ///
-  float   bigdec    101-110  ///
+  double  bigdec    101-110  ///
   double  bigint    101-119  ///
   str     bigstr    101-119  ///
   using `"xx9999a.dat"'
