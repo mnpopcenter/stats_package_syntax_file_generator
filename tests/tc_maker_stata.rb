@@ -35,7 +35,7 @@ def test_syn_infix_var_locs
         '  long    dwnum     2-7      ///',
         '  byte    hhnum     8-8      ///',
         '  int     fbig_nd   45-48    ///',
-        '  float   canton    67-69    ///',
+        '  double  canton    67-69    ///',
         '  byte    lit       101-101  ///',
     ]
     var_list = names_to_vars( mk.sfc, %w(RECTYPE DWNUM HHNUM FBIG_ND CANTON LIT) )
