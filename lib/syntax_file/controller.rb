@@ -6,7 +6,7 @@
 module SyntaxFile
 class Controller
 
-VERSION = "1.0.4"
+VERSION = "1.0.5"
 
 ATTR = {
     :project                    => { :req => false, :rw => 'rw', :def => '',          :yaml => true  },
@@ -26,6 +26,7 @@ ATTR = {
     :select_vars_by_record_type => { :req => false, :rw => 'rw', :def => false,       :yaml => true  },
     :variables                  => { :req => false, :rw => 'r',  :def => nil,         :yaml => false },
     :yaml_files                 => { :req => false, :rw => 'r',  :def => nil,         :yaml => false },
+    :output_encoding            => { :req => false, :rw => 'r',  :def => "iso-8859-1",:yaml => true },
 }
 
 ATTR.each_key do |k|
@@ -217,12 +218,12 @@ def generate_syntax_file (syntax_type)
         if RUBY_VERSION.start_with? "1.8"
           File.open(file_name, 'w') { |f| f.puts syntax(syntax_type) }
         else
-          File.open(file_name, 'w:iso-8859-1') { |f| 
+          File.open(file_name, "w:#{self.output_encoding}") { |f|
 
           lines =  syntax(syntax_type)
           lines.each do |line|
               begin
-                  f.puts line.rstrip.encode('iso-8859-1', line.encoding.to_s,{:invalid=>:replace, :undef=>:replace,:replace => '?'})
+                  f.puts line.rstrip.encode(self.output_encoding, line.encoding.to_s,{:invalid=>:replace, :undef=>:replace,:replace => '?'})
               rescue Exception=>msg
                   puts "Failed encoding on line #{line} #{msg}"
               end
