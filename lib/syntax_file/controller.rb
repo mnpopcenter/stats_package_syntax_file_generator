@@ -46,7 +46,8 @@ def initialize (args = {})
         'sas'   => '.sas',
         'spss'  => '.sps',
         'stata' => '.do',
-        'sts'   => '.sts'
+        'sts'   => '.sts',
+		'rddi'  => '.R'
     } if @output_file_ext.nil?
     @output_formats  = [] if @output_formats.nil?
     @record_types    = [] if @record_types.nil?

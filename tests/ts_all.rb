@@ -15,6 +15,7 @@ require 'test/unit'
     tc_maker_spss
     tc_maker_stata
     tc_maker_sts
+	tc_maker_rddi
 ).each do |f|
     require File.expand_path(File.join(File.dirname(__FILE__), f))
 end
