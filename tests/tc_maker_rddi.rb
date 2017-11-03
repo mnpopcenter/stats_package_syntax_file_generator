@@ -20,7 +20,8 @@ def test_check_ripums
     msg = 'Compare against hardcoded result.'
     mk = new_maker('rddi')
     expected = [
-        'if (!require("ripums")) stop("Reading IPUMS data into R requires the ripums package. It can be installed using the following command: install.packages(\'ripums\')")'
+        'if (!require("ripums")) stop("Reading IPUMS data into R requires the ripums package. It can be installed using the following command: install.packages(\'ripums\')")',
+		''
     ]
     actual = mk.check_ripums
     assert_equal expected, actual, msg

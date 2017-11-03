@@ -47,7 +47,7 @@ def initialize (args = {})
         'spss'  => '.sps',
         'stata' => '.do',
         'sts'   => '.sts',
-		'rddi'  => '.R'
+        'rddi'  => '.R'
     } if @output_file_ext.nil?
     @output_formats  = [] if @output_formats.nil?
     @record_types    = [] if @record_types.nil?

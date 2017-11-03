@@ -14,7 +14,7 @@ def syntax
     r = [
         comments_start,
         check_ripums,
-		syn_df,
+        syn_df,
         comments_end,
     ]
     r.flatten
@@ -37,14 +37,18 @@ def convert_to_comments (lines)
 end
 
 def check_ripums 
-	[
-		'if (!require("ripums")) stop("Reading IPUMS data into R requires the ripums package. It can be installed using the following command: install.packages(\'ripums\')")'
-	]
+    [
+        'if (!require("ripums")) stop("Reading IPUMS data into R requires the ripums package. It can be installed using the following command: install.packages(\'ripums\')")',
+        ''
+    ]
 end
 
 def syn_df
-	ddi_file = @sfc.data_file_name.chomp[0...-3] + 'xml'
-    'data <- read_ipums_micro(' + q(ddi_file) + ')'
+    ddi_file = @sfc.data_file_name.chomp[0...-3] + 'xml'
+    [
+        'ddi <- read_ipums_ddi(' + q(ddi_file) + ')',
+	    'data <- read_ipums_micro(ddi)',
+    ]
 end
 
 end
