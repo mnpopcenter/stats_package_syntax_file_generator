@@ -16,14 +16,14 @@ def test_create_maker_rddi
     assert_instance_of SyntaxFile::MakerRDDI, mk, msg
 end
 
-def test_check_ripums
+def test_check_pkg
     msg = 'Compare against hardcoded result.'
     mk = new_maker('rddi')
     expected = [
-        'if (!require("ripums")) stop("Reading IPUMS data into R requires the ripums package. It can be installed using the following command: install.packages(\'ripums\')")',
+        'if (!require("ipumsr")) stop("Reading IPUMS data into R requires the ipumsr package. It can be installed using the following command: install.packages(\'ipumsr\')")',
 		''
     ]
-    actual = mk.check_ripums
+    actual = mk.check_pkg
     assert_equal expected, actual, msg
 end
 

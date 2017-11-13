@@ -13,7 +13,7 @@ end
 def syntax
     r = [
         comments_start,
-        check_ripums,
+        check_pkg,
         syn_df,
         comments_end,
     ]
@@ -36,9 +36,9 @@ def convert_to_comments (lines)
     ].flatten
 end
 
-def check_ripums 
+def check_pkg 
     [
-        'if (!require("ripums")) stop("Reading IPUMS data into R requires the ripums package. It can be installed using the following command: install.packages(\'ripums\')")',
+        'if (!require("ipumsr")) stop("Reading IPUMS data into R requires the ipumsr package. It can be installed using the following command: install.packages(\'ipumsr\')")',
         ''
     ]
 end
