@@ -1,7 +1,7 @@
 stats_package_syntax_file_generator
 https://github.com/mnpopcenter/stats_package_syntax_file_generator
 
-Copyright 2016 Regents of the University of Minnesota
+Copyright 2017 Regents of the University of Minnesota
 
 Contributors:
   Monty Hindman, Minnesota Population Center, University of Minnesota

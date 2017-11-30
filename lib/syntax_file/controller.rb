@@ -6,7 +6,7 @@
 module SyntaxFile
 class Controller
 
-VERSION = "1.0.5"
+VERSION = "1.0.6"
 
 ATTR = {
     :project                    => { :req => false, :rw => 'rw', :def => '',          :yaml => true  },
