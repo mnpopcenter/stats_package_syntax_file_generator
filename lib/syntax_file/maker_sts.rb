@@ -115,7 +115,6 @@ def syn_val_labs_for_var_start (var)
 end
 
 def syn_val_lab_for_val (var, val, fmt)
-    return if !supported_val?(val)
     sprintf fmt, sts_val_q(var, val_as_s(var, val.value.to_s)), esc(q(val.label))
 end
 
