@@ -105,7 +105,7 @@ def syn_val_labs_for_var (var)
     value_format = "    %-#{m}s %s"
     r = [
         syn_val_labs_for_var_start(var),
-        val_list.map { |val| syn_val_lab_for_val(var, val, value_format) }
+        val_list.reject{ |val| !supported_val?(val) }.map { |val| syn_val_lab_for_val(var, val, value_format) }
     ]
     r.flatten
 end
@@ -115,7 +115,7 @@ def syn_val_labs_for_var_start (var)
 end
 
 def syn_val_lab_for_val (var, val, fmt)
-    return explain_skipped_value(val) if !supported_val?(val)      
+    return if !supported_val?(val)
     sprintf fmt, sts_val_q(var, val_as_s(var, val.value.to_s)), esc(q(val.label))
 end
 
@@ -141,12 +141,6 @@ end
 
 def esc (s)
     s.gsub(/\n/, " [New line.] ")
-end
-
-def explain_skipped_value(val)
-    return "// Value label for '#{val.value}' is not STS compatible -- skipping" if !supported_val_label?(val)
-    "// Value '#{val.value}' is not STS compatible -- skipping" if !supported_val_value?(val)
-    "// Skipping"
 end
 
 # Stat/Transfer does not like blank value labels
