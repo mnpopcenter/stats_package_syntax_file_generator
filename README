@@ -4,7 +4,7 @@ This gem produces statistical package syntax files for fixed-column data files.
     SPSS
     Stata
     Stat/Transfer STS metadata files
-    R (via the ripums package which depends on IPUMS DDIs)
+    R (via the ipumsr package which depends on IPUMS DDIs)
 
 Metadata can be supplied to the Controller in two general ways:
 
