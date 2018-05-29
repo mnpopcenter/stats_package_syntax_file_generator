@@ -14,6 +14,7 @@ require 'yaml'
     maker_spss
     maker_stata
     maker_sts
+	maker_rddi
 ).each do |f|
     require File.expand_path(File.join(File.dirname(__FILE__), 'syntax_file', f))
 end

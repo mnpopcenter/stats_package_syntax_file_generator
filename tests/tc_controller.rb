@@ -231,7 +231,7 @@ def test_generate_syntax_files
 
     # Remove files generated during any previous test.
     stem = 'testing'
-    expected_files = %w(do sas sps sts).map { |e| stem + '.' + e }
+    expected_files = %w(R do sas sps sts).map { |e| stem + '.' + e }
     remove_file_from_dir(output_dir, expected_files)
 
     msg = 'Make sure the testing output directory is empty.'

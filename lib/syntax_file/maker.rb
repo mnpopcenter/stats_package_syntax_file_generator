@@ -106,7 +106,12 @@ def comments_start
         'NOTE: You need to set the Stata working directory to the path',
         'where the data file is located.',
     ] if @syntax_type == 'stata'
-
+    
+	return [
+        "NOTE: To load data, you must download both the extract's data and the DDI",
+        "and also set the working directory to the folder with these files (or change the path below).",
+    ] if @syntax_type == 'rddi'
+    
     cmd = (@syntax_type == 'sas') ? 'libname' : 'cd'
     result = [
         "NOTE: You need to edit the `#{cmd}` command to specify the path to the directory",

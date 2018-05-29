@@ -4,7 +4,7 @@ This gem produces statistical package syntax files for fixed-column data files.
     SPSS
     Stata
     Stat/Transfer STS metadata files
-
+    R (via the ipumsr package which depends on IPUMS DDIs)
 
 Metadata can be supplied to the Controller in two general ways:
 
@@ -89,6 +89,7 @@ Class overview:
     Maker_SPSS
     Maker_STATA
     Maker_STS
+    Maker_RDDI
 
         - Classes responsible for creating syntax.
 
