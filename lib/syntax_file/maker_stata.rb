@@ -16,7 +16,9 @@ def initialize (sfc, syntax_type)
     @var_lab_format     = "label var %-#{mx_var}s %s"
     @infix_format       = "%#{mx_col + mx_var + 4}s"
     @replace_format     = "replace %-#{mx_var}s = %-#{mx_var}s / %d"
-    @display_format     = "format %-#{mx_var}s %%%d.%df"
+    @fixed_point_display_format     = "format %-#{mx_var}s %%%d.%df"
+	@general_display_format = "format %-#{mx_var}s %%%d.%dg"
+	
     @cmd_end            = ''
     @cmd_continue       = ' ///'
     @var_label_max_leng = 80
@@ -203,7 +205,14 @@ def syn_display_format
     return [] if var_list.empty?
     var_list.map { |var|
         v = var.name.downcase
-        sprintf @display_format, v, var.width, var.implied_decimals
+		
+		# If implied decimals set, it means we know exactly how much precision
+		# to show. Otherwise we go with the underlying value and the 'g' (general) formatting rules in Stata
+        formatting = var.implied_decimals > 0 ?
+			sprintf(@fixed_point_display_format, v, var.width, var.implied_decimals) :
+			sprintf(@general_display_format, v, var.width, var.implied_decimals)
+			
+		formatting
     }
 end
 

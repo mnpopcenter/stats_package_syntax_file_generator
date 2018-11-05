@@ -145,7 +145,7 @@ def test_syn_display_format
         "format canton   %3.1f",
         "format resprev2 %4.3f",
         "format bigdec   %10.5f",
-        "format bigint   %19.0f"
+        "format bigint   %19.0g"
     ]
     actual = mk.syn_display_format
     assert_equal expected, actual, msg
