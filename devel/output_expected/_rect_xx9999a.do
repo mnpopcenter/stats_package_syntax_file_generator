@@ -119,8 +119,6 @@ label define socsec_lbl 2 `"Covered through family member"', add
 label define socsec_lbl 3 `"Not covered"', add
 label values socsec socsec_lbl
 
-label values edlevel edlevel_lbl
-
 label define lit_lbl 1 `"Able to read and write"'
 label define lit_lbl 2 `"Not able to read and write"', add
 label values lit lit_lbl

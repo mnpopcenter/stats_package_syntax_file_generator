@@ -229,11 +229,16 @@ module SyntaxFile
       var_list = @sfc.get_vars_with_values.find_all { |var| not var.is_string_var }
       return [] if var_list.empty?
       r = var_list.map { |var|
-        [
-          syn_val_labs_for_var(var),
-          "label values " + var.name.downcase + ' ' + label_handle(var),
-          blank,
-        ]
+        labels = syn_val_labs_for_var(var)
+        if labels.any?
+          [
+            labels,
+            "label values " + var.name.downcase + ' ' + label_handle(var),
+            blank,
+          ]
+        else
+          []
+        end
       }
       r.flatten
     end
@@ -242,6 +247,12 @@ module SyntaxFile
       val_list = labelable_values(var)
       return [] if val_list.empty?
       m = max_value_length(var, val_list)
+
+      # A Stata value 10 digits or wider cannot be labeled.
+      if m >= 10
+        return []
+      end
+
       value_format = "label define %s %-#{m}s %s%s"
       add_cmd = ''
       r = []

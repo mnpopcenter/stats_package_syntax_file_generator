@@ -2,3 +2,4 @@ devel/output_result/*
 pkg/
 .idea
 Gemfile.lock
+.ruby-version
