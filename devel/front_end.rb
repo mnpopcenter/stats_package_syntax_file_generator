@@ -36,7 +36,7 @@ def check_command_line_args
     ARGV
 end
 
-def run_all (sfc)
+def run_all(sfc)
     %w(hier rect).each do |t|
         sfc.data_structure   = t
         sfc.output_file_stem = '_' + t + '_%s'
@@ -44,7 +44,7 @@ def run_all (sfc)
     end
 end
 
-def run_once (sfc)
+def run_once(sfc)
     sfc.generate_syntax_files
 end
 

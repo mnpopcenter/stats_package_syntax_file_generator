@@ -4,52 +4,52 @@
 #   https://github.com/mnpopcenter/stats_package_syntax_file_generator
 
 module SyntaxFile
-class MakerRDDI < Maker
+  class MakerRDDI < Maker
 
-def initialize (sfc, syntax_type)
-    super
-end
+    def initialize(sfc, syntax_type)
+      super
+    end
 
-def syntax
-    r = [
+    def syntax
+      r = [
         comments_start,
         check_pkg,
         syn_df,
         comments_end,
-    ]
-    r.flatten
-end
+      ]
+      r.flatten
+    end
 
-def comments_start
-    convert_to_comments(super)
-end
+    def comments_start
+      convert_to_comments(super)
+    end
 
-def comments_end
-    convert_to_comments(super)
-end
+    def comments_end
+      convert_to_comments(super)
+    end
 
-def convert_to_comments (lines)
-    return [] if lines.empty?
-    [
+    def convert_to_comments(lines)
+      return [] if lines.empty?
+      [
         lines.map { |ln| '# ' + ln },
         blank,
-    ].flatten
-end
+      ].flatten
+    end
 
-def check_pkg 
-    [
+    def check_pkg
+      [
         'if (!require("ipumsr")) stop("Reading IPUMS data into R requires the ipumsr package. It can be installed using the following command: install.packages(\'ipumsr\')")',
         ''
-    ]
-end
+      ]
+    end
 
-def syn_df
-    ddi_file = @sfc.data_file_name.chomp[0...-3] + 'xml'
-    [
+    def syn_df
+      ddi_file = @sfc.data_file_name.chomp[0...-3] + 'xml'
+      [
         'ddi <- read_ipums_ddi(' + q(ddi_file) + ')',
-	    'data <- read_ipums_micro(ddi)',
-    ]
-end
+        'data <- read_ipums_micro(ddi)',
+      ]
+    end
 
-end
+  end
 end

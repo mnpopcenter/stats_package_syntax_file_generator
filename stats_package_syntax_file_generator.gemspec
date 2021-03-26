@@ -15,7 +15,6 @@ spec = Gem::Specification.new do |s|
   s.files             = Dir.glob("{lib,tests}/**/*")
   s.require_path      = "lib"
   s.test_file         = 'tests/ts_all.rb'
-  s.has_rdoc          = true
   s.extra_rdoc_files  = ['README']
 
   s.add_development_dependency 'bundler'

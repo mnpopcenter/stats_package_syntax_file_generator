@@ -32,7 +32,7 @@ replace bigdec   = bigdec   / 100000
 format canton   %3.1f
 format resprev2 %4.3f
 format bigdec   %10.5f
-format bigint   %19.0f
+format bigint   %19.0g
 
 label var rectype  `"Record type"'
 label var dwnum    `"Dwelling number"'

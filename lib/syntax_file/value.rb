@@ -4,26 +4,25 @@
 #   https://github.com/mnpopcenter/stats_package_syntax_file_generator
 
 module SyntaxFile
-class Value
+  class Value
 
-ATTR = {
-    :value => { :req => true,  :rw => 'rw', :def =>  nil   },
-    :label => { :req => false, :rw => 'rw', :def =>  ''    },
-}
+    ATTR = {
+      :value => { :req => true, :rw => 'rw', :def => nil },
+      :label => { :req => false, :rw => 'rw', :def => '' },
+    }
 
-ATTR.each_key do |k|
-    attr_reader k if ATTR[k][:rw].include? 'r'
-    attr_writer k if ATTR[k][:rw].include? 'w'
-end
+    ATTR.each_key do |k|
+      attr_reader k if ATTR[k][:rw].include? 'r'
+      attr_writer k if ATTR[k][:rw].include? 'w'
+    end
 
-def initialize (args = {})
-    ATTR.each_key { |k|
-        raise(ArgumentError, "Missing required parameter: '#{k}'.") if
-            ATTR[k][:req] and not args.has_key?(k)
+    def initialize(args = {})
+      ATTR.each_key { |k|
+        raise(ArgumentError, "Missing required parameter: '#{k}'.") if ATTR[k][:req] and not args.has_key?(k)
         v = args.has_key?(k) ? args[k] : ATTR[k][:def]
         instance_variable_set("@#{k}".to_sym, v)
-    }
-end
+      }
+    end
 
-end
+  end
 end

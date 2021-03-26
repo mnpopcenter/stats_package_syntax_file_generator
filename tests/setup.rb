@@ -31,7 +31,7 @@ def new_value
     SyntaxFile::Value.new params_value()
 end
 
-def new_maker (syntax_type = '')
+def new_maker(syntax_type = '')
     maker_class = 'SyntaxFile::Maker' + syntax_type.upcase
     eval(maker_class).new(new_controller, syntax_type)
 end
@@ -57,7 +57,7 @@ def params_variable
     }
 end
 
-def params_value (val = 99, lab = 'bar')
+def params_value(val = 99, lab = 'bar')
     {
         :value => val,
         :label => 'Test value: ' + lab,
@@ -70,30 +70,30 @@ def params_values
     [0,1,2,9,9999].map { |v| params_value(v, 'bar' + v.to_s) }
 end
 
-def add_new_values_to_var (var)
+def add_new_values_to_var(var)
     params_values.each { |pv| var.add_value(pv) }
 end
 
 # Helper functions.
 
-def params_variable_lookup (k)
+def params_variable_lookup(k)
     params_variable[k]
 end
 
-def vars_to_names (var_list)
+def vars_to_names(var_list)
     return nil if var_list.nil?
     var_list.map { |v| v.name }
 end
 
-def names_to_vars (sfc, var_list)
+def names_to_vars(sfc, var_list)
     var_list.map { |nm| sfc.get_var_by_name(nm) }
 end
 
-def dir_contents (dir_name)
+def dir_contents(dir_name)
     Dir.entries(dir_name).sort.reject { |f| f[0,1] == '.' }
 end
 
-def remove_file_from_dir (d, files)
+def remove_file_from_dir(d, files)
     files.each do |f|
         full_path = File.join(d, f)
         File.delete(full_path) if File.file?(full_path)

@@ -97,7 +97,7 @@ def test_label_segments
 end
 
 def test_weave_label_segments
-    msg = 'Compare against hardcoded result.'
+    # Compare against hardcoded result
     mk = new_maker()
     fmt = "%-7s %s %-7s"
     a = [
