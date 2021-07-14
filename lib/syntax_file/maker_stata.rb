@@ -16,7 +16,8 @@ module SyntaxFile
       @infix_format = "%#{mx_col + mx_var + 4}s"
       @replace_format = "replace %-#{mx_var}s = %-#{mx_var}s / %d"
       @fixed_point_display_format = "format %-#{mx_var}s %%%d.%df"
-      @general_display_format = "format %-#{mx_var}s %%%d.%dg"
+      @general_display_format = "format %-#{mx_var}s %%%d.0g"
+      @integer_display_format = "format %-#{mx_var}s %%%d.0f"
 
       @cmd_end = ''
       @cmd_continue = ' ///'
@@ -205,13 +206,21 @@ module SyntaxFile
       var_list.map { |var|
         v = var.name.downcase
 
-        # If implied decimals set, it means we know exactly how much precision
-        # to show. Otherwise we go with the underlying value and the 'g' (general) formatting rules in Stata
-        formatting = var.implied_decimals > 0 ?
-          sprintf(@fixed_point_display_format, v, var.width, var.implied_decimals) :
-          sprintf(@general_display_format, v, var.width, var.implied_decimals)
-
-        formatting
+        # When implied decimals are set, it means we know exactly how much precision to show: '.nf' where n is the
+        # number of implied decimals.
+        # When the number is a double float in our metadata, we go with the underlying value and the '.0g' (general)
+        # formatting rules in Stata.
+        # Otherwise the variable is a integer in our metadata, and we therefore use '.0f' for formatting
+        #
+        # In Stata you store large integer type data in 'double' or 'long double' type variables. It's confusing.
+        case
+        when var.implied_decimals > 0
+          sprintf(@fixed_point_display_format, v, var.width, var.implied_decimals)
+        when var.is_double_var
+          sprintf(@general_display_format, v, var.width)
+        else # default is integer
+          sprintf(@integer_display_format, v, var.width)
+        end
       }
     end
 
