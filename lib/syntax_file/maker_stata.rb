@@ -26,6 +26,10 @@ module SyntaxFile
       @sort_var_stem = '_line_num'
     end
 
+    def supports_csv?
+      true
+    end
+
     def syntax
       r = [
         comments_start,
@@ -80,17 +84,24 @@ module SyntaxFile
 
     def syn_infix(var_list)
       r = [
-        syn_infix_start,
-        syn_infix_var_locs(var_list),
-        syn_infix_end,
+        syn_infix_start
       ]
+      if !@sfc.is_csv?
+        r.push syn_infix_var_locs(var_list)
+        r.push syn_infix_end
+      end
       r.flatten
     end
 
     def syn_infix_start
+      if @sfc.is_csv?
+        infix_cmd = "quietly import delimited using #{q(@sfc.data_file_name)}"
+      else
+        infix_cmd = 'quietly infix'
+      end
       [
         'clear',
-        'quietly infix' + sprintf(@infix_format, @cmd_continue),
+        infix_cmd + sprintf(@infix_format, @cmd_continue),
       ]
     end
 

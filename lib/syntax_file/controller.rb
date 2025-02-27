@@ -52,7 +52,16 @@ module SyntaxFile
       @record_types = [] if @record_types.nil?
       @variables = [] if @variables.nil?
       @yaml_files = [] if @yaml_files.nil?
+      @data_file_format = @data_file_name.end_with?('.csv') ? 'csv' : 'dat'
+
+      if @data_structure == 'hier' && is_csv?
+        raise(ArgumentError, 'Hierarchical data_structure is not supported for CSV data')
+      end
       read_metadata_from_yaml
+    end
+
+    def is_csv?
+      @data_file_format == 'csv'
     end
 
     # Methods to import metadata from YAML files into the Controller object.

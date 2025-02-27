@@ -23,6 +23,14 @@ def new_controller
     SyntaxFile::Controller.new(:yaml_files => YAML_FILES)
 end
 
+def new_controller_csv
+    controller = new_controller
+    controller.data_file_name = 'data.csv'
+    controller.instance_variable_set(:@data_file_format, 'csv')
+    controller.data_structure = 'rect'
+    controller
+end
+
 def new_variable
     SyntaxFile::Variable.new params_variable()
 end
@@ -31,9 +39,10 @@ def new_value
     SyntaxFile::Value.new params_value()
 end
 
-def new_maker(syntax_type = '')
+def new_maker(syntax_type = '', csv: false)
     maker_class = 'SyntaxFile::Maker' + syntax_type.upcase
-    eval(maker_class).new(new_controller, syntax_type)
+    controller = csv ? new_controller_csv : new_controller
+    eval(maker_class).new(controller, syntax_type)
 end
 
 # Parameters used when creating objects with known values.
