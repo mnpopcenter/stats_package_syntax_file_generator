@@ -17,6 +17,10 @@ module SyntaxFile
       @segment_max_leng = 100
     end
 
+    def supports_csv?
+      true
+    end
+
     def syntax
       r = [
         comments_start,
@@ -54,7 +58,33 @@ module SyntaxFile
     end
 
     def syn_df
-      @sfc.data_structure == 'hier' ? syn_dfh : syn_dfr
+      if @sfc.is_csv?
+        syn_dfr_csv
+      else
+        @sfc.data_structure == 'hier' ? syn_dfh : syn_dfr
+      end
+    end
+
+    def syn_dfr_csv
+      r = [
+        'GET DATA  /TYPE=TXT',
+        '  /FILE=' + q(@sfc.data_file_name),
+        '  /ENCODING=\'UTF8\'',
+        '  /DELIMITERS=","',
+        '  /QUALIFIER=\'"\'',
+        '  /ARRANGEMENT=DELIMITED',
+        '  /FIRSTCASE=2',
+        '  /DATATYPEMIN PERCENTAGE=95.0',
+        '  /VARIABLES=',
+        syn_vars_csv(@sfc.variables),
+        '  /MAP.',
+        'execute.'
+      ]
+      r.flatten
+    end
+
+    def syn_vars_csv(var_list)
+      var_list.map { |v| sprintf @var_loc_format, v.name, 'AUTO' }
     end
 
     def syn_dfr
