@@ -247,5 +247,43 @@ def test_non_last_non_common_vars
     assert_equal [], vars_to_names(var_list), msg
 end
 
+def test_csv_import
+    msg = 'Compare against hardcoded result.'
+    mk = new_maker('sas', csv: true)
+    expected = [
+      'data IPUMS.data;',
+      'infile CSV missover dsd delimiter="," firstobs=2;',
+      '',
+      'input',
+      "  RECTYPE  $ ",
+      "  DWNUM      ",
+      "  HHNUM      ",
+      "  HDFIRSTD   ",
+      "  FBIG_ND    ",
+      "  BADDW      ",
+      "  CANTON      .1",
+      "  URBAN      ",
+      "  DWTYPE     ",
+      "  OWNERSHP   ",
+      "  RENT     $ ",
+      "  RELATE     ",
+      "  SEX        ",
+      "  AGE        ",
+      "  RESPREV2    .3",
+      "  SOCSEC     ",
+      "  EDLEVEL    ",
+      "  LIT        ",
+      "  BIGDEC      .5",
+      "  BIGINT     ",
+      "  BIGSTR   $ ",
+      ";",
+      ''
+    ]
+    assert_equal expected, mk.syn_df, msg
+
+    expected2 = []
+    assert_equal expected2, mk.syn_fmt_link, msg
+end
+
 end
 end

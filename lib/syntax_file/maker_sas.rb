@@ -18,9 +18,13 @@ module SyntaxFile
       @label_max_leng = 256
       @segment_max_leng = 100
       @sas_library_handle = 'IPUMS'
-      @sas_file_handle = 'ASCIIDAT'
+      @sas_file_handle = @sfc.is_csv? ? 'CSV' : 'ASCIIDAT'
       @sas_fmt_suffix = '_f'
       @sas_data_file_name = @sas_library_handle + '.' + @sfc.data_file_name_stem
+    end
+
+    def supports_csv?
+      true
     end
 
     def syntax
@@ -138,10 +142,14 @@ module SyntaxFile
     end
 
     def syn_df_infile
-      # The LRECL specification is needed because the default behavior on some
-      # operating systems is to truncate records to 256 columns.
-      c = @sfc.last_column_used
-      'infile ' + @sas_file_handle + ' pad missover lrecl=' + c.to_s + @cmd_end
+      if @sfc.is_csv?
+        'infile ' + @sas_file_handle + " missover dsd delimiter=" + q(',') + " firstobs=2" + @cmd_end
+      else
+        # The LRECL specification is needed because the default behavior on some
+        # operating systems is to truncate records to 256 columns.
+        c = @sfc.last_column_used
+        'infile ' + @sas_file_handle + ' pad missover lrecl=' + c.to_s + @cmd_end
+      end
     end
 
     def syn_dfr
@@ -163,7 +171,7 @@ module SyntaxFile
       var_list.collect { |v|
         sprintf(@var_loc_format, v.name) +
           (v.is_string_var ? '$ ' : '  ') +
-          v.column_locations_as_s +
+          (@sfc.is_csv? ? '' : v.column_locations_as_s) +
           implied_decimal_fmt(v)
       }
     end
@@ -270,7 +278,7 @@ module SyntaxFile
 
     def syn_fmt_link
       var_list = @sfc.get_vars_with_values
-      return [] if var_list.empty?
+      return [] if var_list.empty? || @sfc.is_csv?
       r = [
         'format',
         syn_fmt_link_for_var_list(var_list),
