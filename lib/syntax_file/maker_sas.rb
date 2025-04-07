@@ -257,7 +257,7 @@ module SyntaxFile
 
     def syn_fmt_big_nums
       big_num_vars = @sfc.get_big_nums
-      return [] if big_num_vars.empty?
+      return [] if big_num_vars.empty? || @sfc.is_csv?
       r = [
         'format',
         syn_fmt_big_nums_for_var_list(big_num_vars),

@@ -223,7 +223,7 @@ end
 def test_csv_import
     msg = 'Compare against hardcoded result.'
     mk = new_maker('stata', csv: true)
-    expected = ['clear', 'quietly import delimited using `"data.csv"\'                ///']
+    expected = ['clear', 'quietly import delimited `"data.csv"\'                ///']
     assert_equal expected, mk.syn_df, msg
 end
 

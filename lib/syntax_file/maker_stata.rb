@@ -95,7 +95,7 @@ module SyntaxFile
 
     def syn_infix_start
       if @sfc.is_csv?
-        infix_cmd = "quietly import delimited using #{q(@sfc.data_file_name)}"
+        infix_cmd = "quietly import delimited #{q(@sfc.data_file_name)}"
       else
         infix_cmd = 'quietly infix'
       end
@@ -201,7 +201,7 @@ module SyntaxFile
 
     def syn_convert_implied_decim
       var_list = @sfc.variables.find_all { |var| var.implied_decimals > 0 }
-      return [] if var_list.empty?
+      return [] if var_list.empty? || @sfc.is_csv?
       var_list.map { |var|
         v = var.name.downcase
         sprintf @replace_format, v, v, 10 ** var.implied_decimals
@@ -213,7 +213,7 @@ module SyntaxFile
         vf = var_fmt(var)
         vf == 'double' or vf == 'float'
       }
-      return [] if var_list.empty?
+      return [] if var_list.empty? || @sfc.is_csv?
       var_list.map { |var|
         v = var.name.downcase
 
