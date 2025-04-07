@@ -26,7 +26,6 @@ end
 def new_controller_csv
     controller = new_controller
     controller.data_file_name = 'data.csv'
-    controller.instance_variable_set(:@data_file_format, 'csv')
     controller.data_structure = 'rect'
     controller
 end
