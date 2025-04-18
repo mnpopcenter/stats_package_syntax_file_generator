@@ -294,7 +294,7 @@ module SyntaxFile
     end
 
     def implied_decimal_fmt(var)
-      return '' if var.is_string_var or var.implied_decimals == 0
+      return '' if var.is_string_var or var.implied_decimals == 0 or @sfc.is_csv?
       return ' .' + var.implied_decimals.to_s
     end
 
