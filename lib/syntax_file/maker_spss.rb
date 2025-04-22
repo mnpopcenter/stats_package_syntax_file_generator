@@ -74,7 +74,7 @@ module SyntaxFile
         '  /QUALIFIER=\'"\'',
         '  /ARRANGEMENT=DELIMITED',
         '  /FIRSTCASE=2',
-        '  /DATATYPEMIN PERCENTAGE=10.0',
+        '  /DATATYPEMIN PERCENTAGE=100.0',
         '  /VARIABLES=',
         syn_vars_csv(@sfc.variables),
         '  /MAP.',
