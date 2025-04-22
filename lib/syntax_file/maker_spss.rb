@@ -74,7 +74,7 @@ module SyntaxFile
         '  /QUALIFIER=\'"\'',
         '  /ARRANGEMENT=DELIMITED',
         '  /FIRSTCASE=2',
-        '  /DATATYPEMIN PERCENTAGE=95.0',
+        '  /DATATYPEMIN PERCENTAGE=10.0',
         '  /VARIABLES=',
         syn_vars_csv(@sfc.variables),
         '  /MAP.',
@@ -84,7 +84,7 @@ module SyntaxFile
     end
 
     def syn_vars_csv(var_list)
-      var_list.map { |v| sprintf @var_loc_format, v.name, 'AUTO' }
+      var_list.map { |v| sprintf @var_loc_format, v.name, v.is_string_var ? 'A' : 'AUTO' }
     end
 
     def syn_dfr

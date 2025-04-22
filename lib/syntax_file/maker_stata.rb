@@ -95,7 +95,7 @@ module SyntaxFile
 
     def syn_infix_start
       if @sfc.is_csv?
-        infix_cmd = "quietly import delimited #{q(@sfc.data_file_name)}"
+        infix_cmd = "quietly import delimited #{q(@sfc.data_file_name)}, stringcols(#{list_stringcols(@sfc.variables)})"
       else
         infix_cmd = 'quietly infix'
       end
@@ -332,6 +332,18 @@ module SyntaxFile
     def rt_ne_statement(rt)
       rt_var = @sfc.record_type_var
       rt_var.name.downcase + ' != ' + val_q(rt_var, val_as_s(rt_var, rt))
+    end
+
+    def list_stringcols(vars)
+      positions = []
+      index = 1
+      vars.each do |v|
+        if v.is_string_var
+          positions << index
+        end
+        index += 1
+      end
+      positions.join(' ')
     end
 
   end
