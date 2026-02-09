@@ -13,6 +13,14 @@ module SyntaxFile
       @sfc = sfc
       @syntax_type = syntax_type
       @cmd_end = ''
+
+      if @sfc.is_csv? && !supports_csv?
+        raise "CSV data not supported for #{@syntax_type.upcase} syntax files"
+      end
+    end
+
+    def supports_csv?
+      false
     end
 
     # Syntax terminator.

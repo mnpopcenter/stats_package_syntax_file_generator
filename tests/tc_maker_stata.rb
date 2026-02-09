@@ -220,5 +220,12 @@ def test_rt_ne_statement
     assert_equal expected, mk.rt_ne_statement('H'), msg
 end
 
+def test_csv_import
+    msg = 'Compare against hardcoded result.'
+    mk = new_maker('stata', csv: true)
+    expected = ['clear', 'quietly import delimited `"data.csv"\', stringcols(1 11 21)                ///']
+    assert_equal expected, mk.syn_df, msg
+end
+
 end
 end

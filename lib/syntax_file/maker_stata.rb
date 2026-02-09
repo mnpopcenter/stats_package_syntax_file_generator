@@ -26,6 +26,10 @@ module SyntaxFile
       @sort_var_stem = '_line_num'
     end
 
+    def supports_csv?
+      true
+    end
+
     def syntax
       r = [
         comments_start,
@@ -80,17 +84,24 @@ module SyntaxFile
 
     def syn_infix(var_list)
       r = [
-        syn_infix_start,
-        syn_infix_var_locs(var_list),
-        syn_infix_end,
+        syn_infix_start
       ]
+      if !@sfc.is_csv?
+        r.push syn_infix_var_locs(var_list)
+        r.push syn_infix_end
+      end
       r.flatten
     end
 
     def syn_infix_start
+      if @sfc.is_csv?
+        infix_cmd = "quietly import delimited #{q(@sfc.data_file_name)}, stringcols(#{list_stringcols(@sfc.variables)})"
+      else
+        infix_cmd = 'quietly infix'
+      end
       [
         'clear',
-        'quietly infix' + sprintf(@infix_format, @cmd_continue),
+        infix_cmd + sprintf(@infix_format, @cmd_continue),
       ]
     end
 
@@ -190,7 +201,7 @@ module SyntaxFile
 
     def syn_convert_implied_decim
       var_list = @sfc.variables.find_all { |var| var.implied_decimals > 0 }
-      return [] if var_list.empty?
+      return [] if var_list.empty? || @sfc.is_csv?
       var_list.map { |var|
         v = var.name.downcase
         sprintf @replace_format, v, v, 10 ** var.implied_decimals
@@ -202,7 +213,7 @@ module SyntaxFile
         vf = var_fmt(var)
         vf == 'double' or vf == 'float'
       }
-      return [] if var_list.empty?
+      return [] if var_list.empty? || @sfc.is_csv?
       var_list.map { |var|
         v = var.name.downcase
 
@@ -321,6 +332,18 @@ module SyntaxFile
     def rt_ne_statement(rt)
       rt_var = @sfc.record_type_var
       rt_var.name.downcase + ' != ' + val_q(rt_var, val_as_s(rt_var, rt))
+    end
+
+    def list_stringcols(vars)
+      positions = []
+      index = 1
+      vars.each do |v|
+        if v.is_string_var
+          positions << index
+        end
+        index += 1
+      end
+      positions.join(' ')
     end
 
   end

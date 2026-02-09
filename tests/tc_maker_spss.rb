@@ -116,6 +116,17 @@ def test_var_fmt
     assert_equal expected, actual, msg
 end
 
+def test_csv_import
+    msg = 'Compare against hardcoded result.'
+    mk = new_maker('spss', csv: true)
+    syn_df = mk.syn_df
+    assert_equal 'GET DATA  /TYPE=TXT', syn_df[0], msg
+    assert_equal '  /FILE="data.csv"', syn_df[1], msg
+    assert_equal '  RECTYPE   A', syn_df[9], msg
+    assert_equal '  /MAP.', syn_df[-2], msg
+    assert_equal 'execute.', syn_df[-1], msg
+end
+
 
 end
 end

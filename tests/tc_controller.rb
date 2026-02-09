@@ -374,5 +374,12 @@ def test_rec_type_lookup_hash
     assert_equal( {}, sfc.rec_type_lookup_hash, msg )
 end
 
+def test_hier_csv
+    error = assert_raises ArgumentError do
+        SyntaxFile::Controller.new(data_structure: 'hier', data_file_name: 'data.csv')
+    end
+    assert_equal('Hierarchical data_structure is not supported for CSV data', error.message)
+end
+
 end
 end

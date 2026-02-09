@@ -185,5 +185,12 @@ def test_syn_var_locations
     assert_equal expected, actual, msg
 end
 
+def test_csv_import
+    error = assert_raises RuntimeError do
+        new_maker('sts', csv: true)
+    end
+    assert_equal('CSV data not supported for STS syntax files', error.message)
+end
+
 end
 end
