@@ -6,7 +6,7 @@
 module SyntaxFile
   class Controller
 
-    VERSION = "1.1.8"
+    VERSION = "1.1.9"
 
     ATTR = {
       :project                    => { :req => false, :rw => 'rw', :def => '',          :yaml => true  },
@@ -74,9 +74,29 @@ module SyntaxFile
     def read_metadata_from_yaml
       return if @yaml_files.empty?
       md = {}
-      @yaml_files.each { |f| md.merge! YAML.load_file(f) }
+      @yaml_files.each { |f| 
+        md.merge! parse_yaml(f)
+    }
       md = symbolize_keys(md)
       load_yaml_md(md)
+    end
+
+    def parse_yaml(yaml_file)      
+      if RUBY_ENGINE == 'jruby'
+        # This code exists to handle the new size limit in the Snakeyml Java library
+        # of three million code points.. The issue is discussed here:
+        # https://github.com/jruby/jruby/issues/7543
+        tree_builder = Psych::TreeBuilder.new
+        parser = Psych::Parser.new(tree_builder)
+        parser.code_point_limit = 20_000_000
+
+        yaml_data = File.read(yaml_file)
+        parser.parse(yaml_data)
+        # Convert to Ruby and get the  hash out of the document array
+        tree_builder.root.to_ruby.first
+      else
+        YAML.load_file(yaml_file)      
+      end  
     end
 
     def load_yaml_md(md)
